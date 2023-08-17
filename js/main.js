@@ -9,25 +9,32 @@ formNameError.style.display = "none";
 const formCardNum = document.getElementsByClassName('form-card-num')[0];
 const formCardNumError = document.getElementsByClassName('form-card-num-error')[0];
 let numOfCard = 0;
+formCardNumError.style.display = "none"
 formCardNum.addEventListener("input", (e) => {
-    const eventNumber = e.target.value;
-    if(typeof eventNumber){
-        if(eventNumber>=1 && eventNumber <=9){
-            console.log("Podaj poprawne imię", eventNumber );
+    const eventNumber = e.target.valueAsNumber;
+    console.log(eventNumber>=1);
+    if(parseInt(eventNumber) >= 0 || parseInt(eventNumber) > 2*53){
+        
+        if(eventNumber>=1 ){
+            //console.log("Podaj poprawne imię", eventNumber );
+            formCardNumError.style.display = "none"
             if(numOfCard.length<=16){
                 numOfCard.push(eventNumber);
-                console.log("Podaj poprawne imię", eventNumber );
+                formCardNumError.style.display = "none"
+
+                //console.log("Podaj poprawne imię", eventNumber );
             }
         }
+    }else {
+        formCardNumError.style.display = "block"        
+        formCardNumError.style.color= "red";
     }
-    
-    console.log(parseInt(e.target.value))
-    
+    //console.log(parseInt(e.target.value))
 })
 formName.addEventListener("input", (e) => {
     
     if(e.target.value.length < 5 ){
-        console.log("Podaj poprawne imię");
+        //console.log("Podaj poprawne imię");
         formNameError.style.display = "block";
         formNameError.style.color= "red";
     }
