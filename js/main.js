@@ -11,8 +11,8 @@ const formCardNumError = document.getElementsByClassName('form-card-num-error')[
 let numOfCard = 0;
 formCardNumError.style.display = "none"
 formCardNum.addEventListener("input", (e) => {
-    const eventNumber = e.target.valueAsNumber;
-    console.log(eventNumber>=1);
+    const eventNumber = e.target.value;
+    //console.log(e.target);
     if(parseInt(eventNumber) >= 0 || parseInt(eventNumber) > 2*53){
         
         if(eventNumber>=1 ){
